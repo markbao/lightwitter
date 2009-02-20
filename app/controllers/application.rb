@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
 	# get_consumer establishes a OAuth consumer object
 	def get_consumer
 		# consumer key, consumer secret
-		OAuth::Consumer.new("CONSUMER KEY",
-												"CONSUMER SECRET",
+		OAuth::Consumer.new("cuYChiPyQA9AwITpvz3TsA",
+												"Q40xOUxQS5JUhh6oQPyFDfyCVWOuaQvFOQtwHRiGNA",
 												{ :site=>"http://twitter.com" })
 	end
 	
