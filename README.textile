@@ -14,9 +14,10 @@ h2. Prerequisites, and getting started
 
 h3. OAuth gem
 
-First, you'll need the OAuth gem.
+First, you'll need the OAuth gem (and the JSON gem if you don't have it)
 
 <code>$ gem install oauth</code>
+<code>$ gem install json</code>
 
 h3. Configure databases, and migrate databases
 
