@@ -2,8 +2,48 @@ h1. Lightwitter: Twitter OAuth API Example in Ruby on Rails
 
 Here's Lightwitter an example for Twitter's OAuth API authentication system in Ruby on Rails. Included herein are:
 
-* Authenticating to OAuth.
+* Authenticating to OAuth, with callback code.
 * Sample application that calls Twitter's API REST endpoints with OAuth authentication.
-* An abstraction for the really huge default oauth call, <code>oauth_request</code>
-* Abstractions for other OAuth and general stuff in <code>application.rb</code>: <code>current_user</code>, <code>logged_in?</code>, <code>get_consumer</code>, and <code>access_token</code>
+* An abstraction for the really huge default OAuth call, <code>oauth_request</code>
+* Abstractions for other OAuth and general stuff in <code>application.rb</code>: <code>current_user</code>, <code>logged_in?</code>, <code>get_consumer</code>, and <code>access_token</code>.
 * Documented code on what exactly is going on.
+
+h2. Prerequisites, and getting started
+
+h3. OAuth gem
+
+First, you'll need the OAuth gem.
+
+<code>$ gem install oauth</code>
+
+h3. Configure databases, and migrate databases
+
+Configure your databases in <code>config/database.yml</code>, and then migrate.
+
+<code>$ rake db:migrate</code>
+
+h3. Specify your OAuth Consumer Keys in application.rb
+
+!http://screenshots.markbao.com/c1ad160a9d6f281f4f4bf28d1907b187.png!
+
+Your keys can be found at the Twitter OAuth application manager page. Put these in the <code>get_consumer</code> method in <code>app/controllers/application.rb</code>. First consumer key, then consumer secret. It should look something like:
+
+<pre>
+	# get_consumer establishes a OAuth consumer object
+	def get_consumer
+		# consumer key, consumer secret
+		OAuth::Consumer.new("jaifCOie34LOLef93WTF32",
+							"dfa5i2sjJZ245O2F45I23Dfje3ofJEO2I42FF35Q55",
+							{ :site=>"http://twitter.com" })
+	end
+</pre>
+
+h3. Uh, that's about it!
+
+Made it this far? You're too legit to quit. Have fun.
+
+h2. License
+
+For the lack of a consistent international agreement about what 'public domain' is, this work is licensed under the WTFPL (the Do What The F*** You Want To Public License) http://sam.zoy.org/wtfpl/
+
+(And uh, dual licensed under the MIT license if such language doesn't jive well with you/your employer.)
