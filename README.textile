@@ -1,0 +1,9 @@
+h1. Lightwitter: Twitter OAuth API Example in Ruby on Rails
+
+Here's Lightwitter an example for Twitter's OAuth API authentication system in Ruby on Rails. Included herein are:
+
+* Authenticating to OAuth.
+* Sample application that calls Twitter's API REST endpoints with OAuth authentication.
+* An abstraction for the really huge default oauth call, <code>oauth_request</code>
+* Abstractions for other OAuth and general stuff in <code>application.rb</code>: <code>current_user</code>, <code>logged_in?</code>, <code>get_consumer</code>, and <code>access_token</code>
+* Documented code on what exactly is going on.
