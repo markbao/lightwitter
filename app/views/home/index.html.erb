@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title>lightwitter</title>
+	<style type="text/css">
+	body { font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; }
+	</style>
+</head>
+
+<body>
+	<div id="canvas">
+		<div style="padding:8px;"><strong>lightwitter!</strong> &mdash; really light twitter via oauth<% unless session[:user_id].nil? %> &mdash; <a href="/home/logout">forget me!</a><% end %></div>
+		<% unless @statuses.nil? %>
+		<div style="padding:8px;">
+			<div>update twitter</div>
+			<%= form_tag :action => "update" %>
+			<input type="text" value="" name="updatetext" style="width:100%;" />
+			</form>
+		</div>
+		<% end %>
+		
+		<% if @statuses.nil? %>
+		<!-- we haven't logged in using oauth yet! -->
+		<div style="padding:8px;">
+		hi there! you haven't logged into lightwitter yet.<br />
+		we don't need a username or password, just approve us using your twitter account.<br />
+		<br />
+		<a href="/home/create" style="padding:5px;color:#FFFFFF;background-color:#00510A;text-decoration:none;">click me to continue</a>
+		<% else %>
+		<% @statuses.each do |stat| %>
+		<div style="border-bottom:1px solid #CCCCCC;padding:8px;">
+		<div><%= h stat['text'] %></div>
+		<div style="font-size:0.9em;"><strong><%= stat['user']['screen_name'] %></strong> &ndash; <%= time_ago_in_words(Time.parse(stat['created_at']))%> ago</div>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
+</body>
+</html>
