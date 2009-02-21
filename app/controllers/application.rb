@@ -26,9 +26,10 @@ class ApplicationController < ActionController::Base
 	# get_consumer establishes a OAuth consumer object
 	def get_consumer
 		# consumer key, consumer secret
-		OAuth::Consumer.new("CONSUMER KEY",
-												"CONSUMER SECRET",
-												{ :site=>"http://twitter.com" })
+		puts TWITTER_OAUTH_SETTINGS[RAILS_ENV]["consumer_key"]
+		OAuth::Consumer.new(TWITTER_OAUTH_SETTINGS[RAILS_ENV]["consumer_key"],
+				    TWITTER_OAUTH_SETTINGS[RAILS_ENV]["consumer_secret"],
+				    { :site=>"http://twitter.com" })
 	end
 	
 	# access_token establishes an access token, given either that a user is logged in, or a user object is specified

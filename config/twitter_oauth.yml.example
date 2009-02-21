@@ -1,0 +1,11 @@
+development:
+  consumer_key: PUT_CONSUMER_KEY_HERE
+  consumer_secret: PUT_CONSUMER_SECRET_HERE
+
+production:
+  consumer_key: PUT_CONSUMER_KEY_HERE
+  consumer_secret: PUT_CONSUMER_SECRET_HERE
+
+test:
+  consumer_key: PUT_CONSUMER_KEY_HERE
+  consumer_secret: PUT_CONSUMER_SECRET_HERE
